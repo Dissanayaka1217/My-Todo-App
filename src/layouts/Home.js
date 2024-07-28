@@ -18,8 +18,22 @@ export default function Home() {
       }}
     >
       <HeadingTitle />
-      <InputSection />
-      <ShowTodoSection />
+      <div
+        style={{
+          backgroundColor: "#353434",
+          padding: "5%",
+          width: "fit-content",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginTop: "3%",
+          maxHeight: "80vh",
+          overflowY: "auto",
+          boxShadow: "0px 5px 7px rgb(27, 27, 27)",
+        }}
+      >
+        <InputSection />
+        <ShowTodoSection />
+      </div>
     </div>
   );
 }
