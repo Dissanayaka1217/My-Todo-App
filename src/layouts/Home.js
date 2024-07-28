@@ -9,7 +9,14 @@ import ShowTodoSection from "./home/ShowTodoSection";
 
 export default function Home() {
   return (
-    <div>
+    <div
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        width: "fit-content",
+        margin: "auto",
+      }}
+    >
       <HeadingTitle />
       <InputSection />
       <ShowTodoSection />
