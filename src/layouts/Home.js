@@ -12,6 +12,10 @@ export default function Home() {
   const [descriptionInputValue, setDescriptionInputValue] = useState("");
   const [isAddBtnDisable, setIsAddBtnDisable] = useState(true);
   const [isErrorVisible, setIsErrorVisible] = useState(false);
+  const [todoData, setTodoData] = useState([
+    { title: "title 01", description: "discription 01" },
+    { title: "title 02", description: "discription 02" },
+  ]);
 
   const handleTitleOnchange = (event) => {
     const value = event.target.value;
@@ -67,7 +71,7 @@ export default function Home() {
           isErrorVisible={isErrorVisible}
           handleAddBtn={handleAddBtn}
         />
-        <ShowTodoSection />
+        <ShowTodoSection todoData={todoData} />
       </div>
     </div>
   );

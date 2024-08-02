@@ -3,12 +3,7 @@
 import React from "react";
 import SingleTodo from "./todoList/SingleTodo";
 
-export default function TodoList() {
-  const todoData = [
-    { title: "title 01", description: "discription 01" },
-    { title: "title 02", description: "discription 02" },
-  ];
-
+export default function TodoList({ todoData }) {
   return (
     <div>
       {todoData.map((val, key) => {
