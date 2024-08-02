@@ -6,6 +6,17 @@ import SingleInput from "../../components/inputSection/SingleInput";
 import AddBtn from "../../components/inputSection/AddBtn";
 
 export default function InputSection() {
+  const inputdata = [
+    {
+      title: "Title",
+      placeholder: "Enter Todo Title",
+    },
+    {
+      title: "Desription",
+      placeholder: "Enter Todo Description (Optional)",
+    },
+  ];
+
   return (
     <div style={{ borderBottom: "1px solid gray", paddingBottom: "8px" }}>
       <div
@@ -24,8 +35,9 @@ export default function InputSection() {
             gap: "25px",
           }}
         >
-          <SingleInput />
-          <SingleInput />
+          {inputdata.map((val,key) => {
+            return <SingleInput key={key} inputData = {val} />;
+          })}
         </div>
         <AddBtn />
       </div>

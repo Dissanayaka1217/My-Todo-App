@@ -3,7 +3,10 @@
 
 import React from "react";
 
-export default function SingleInput() {
+export default function SingleInput({ inputData }) {
+
+  const { title, placeholder } = inputData;
+
   return (
     <div>
       <p
@@ -13,7 +16,7 @@ export default function SingleInput() {
         }}
       >
         {" "}
-        Title
+        {title}
       </p>
 
       <input
@@ -27,6 +30,7 @@ export default function SingleInput() {
           fontSize: "15px",
         }}
         type="text"
+        placeholder={placeholder}
       />
     </div>
   );
