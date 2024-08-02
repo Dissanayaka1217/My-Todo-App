@@ -2,12 +2,23 @@
 // InputSection
 // ShowTodoSection
 
-import React from "react";
+import React, { useState } from "react";
 import HeadingTitle from "../components/home/HeadingTitle";
 import InputSection from "./home/InputSection";
 import ShowTodoSection from "./home/ShowTodoSection";
 
 export default function Home() {
+  const [titleInputValue, setTitleInputValue] = useState("");
+  const [descriptionInputValue, setDescriptionInputValue] = useState("");
+
+  const handleTitleOnchange = (event) => {
+    const value = event.target.value;
+    setTitleInputValue(value);
+  };
+  const handleDescriptionOnchange = (event) => {
+    setDescriptionInputValue(event.target.value);
+  };
+
   return (
     <div
       style={{
@@ -31,7 +42,12 @@ export default function Home() {
           boxShadow: "0px 5px 7px rgb(27, 27, 27)",
         }}
       >
-        <InputSection />
+        <InputSection
+          handleTitleOnchange={handleTitleOnchange}
+          titleInputValue={titleInputValue}
+          handleDescriptionOnchange={handleDescriptionOnchange}
+          descriptionInputValue={descriptionInputValue}
+        />
         <ShowTodoSection />
       </div>
     </div>

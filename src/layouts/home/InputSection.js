@@ -5,15 +5,24 @@ import React from "react";
 import SingleInput from "../../components/inputSection/SingleInput";
 import AddBtn from "../../components/inputSection/AddBtn";
 
-export default function InputSection() {
+export default function InputSection({
+  handleTitleOnchange,
+  titleInputValue,
+  handleDescriptionOnchange,
+  descriptionInputValue,
+}) {
   const inputdata = [
     {
       title: "Title",
       placeholder: "Enter Todo Title",
+      handleOnchange: handleTitleOnchange,
+      inputValue: titleInputValue,
     },
     {
       title: "Desription",
       placeholder: "Enter Todo Description (Optional)",
+      handleOnchange: handleDescriptionOnchange,
+      inputValue: descriptionInputValue,
     },
   ];
 
@@ -35,8 +44,8 @@ export default function InputSection() {
             gap: "25px",
           }}
         >
-          {inputdata.map((val,key) => {
-            return <SingleInput key={key} inputData = {val} />;
+          {inputdata.map((val, key) => {
+            return <SingleInput key={key} inputData={val} />;
           })}
         </div>
         <AddBtn />

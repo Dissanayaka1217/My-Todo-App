@@ -4,8 +4,7 @@
 import React from "react";
 
 export default function SingleInput({ inputData }) {
-
-  const { title, placeholder } = inputData;
+  const { title, placeholder, handleOnchange, inputValue } = inputData;
 
   return (
     <div>
@@ -31,6 +30,8 @@ export default function SingleInput({ inputData }) {
         }}
         type="text"
         placeholder={placeholder}
+        onChange={handleOnchange}
+        value={inputValue}
       />
     </div>
   );
