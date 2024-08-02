@@ -10,10 +10,12 @@ import ShowTodoSection from "./home/ShowTodoSection";
 export default function Home() {
   const [titleInputValue, setTitleInputValue] = useState("");
   const [descriptionInputValue, setDescriptionInputValue] = useState("");
+  const [isAddBtnDisable, setIsAddBtnDisable] = useState(true);
 
   const handleTitleOnchange = (event) => {
     const value = event.target.value;
     setTitleInputValue(value);
+    setIsAddBtnDisable(!value.length);
   };
   const handleDescriptionOnchange = (event) => {
     setDescriptionInputValue(event.target.value);
@@ -47,6 +49,7 @@ export default function Home() {
           titleInputValue={titleInputValue}
           handleDescriptionOnchange={handleDescriptionOnchange}
           descriptionInputValue={descriptionInputValue}
+          isAddBtnDisable={isAddBtnDisable}
         />
         <ShowTodoSection />
       </div>

@@ -10,6 +10,7 @@ export default function InputSection({
   titleInputValue,
   handleDescriptionOnchange,
   descriptionInputValue,
+  isAddBtnDisable
 }) {
   const inputdata = [
     {
@@ -48,7 +49,7 @@ export default function InputSection({
             return <SingleInput key={key} inputData={val} />;
           })}
         </div>
-        <AddBtn />
+        <AddBtn isAddBtnDisable={isAddBtnDisable} />
       </div>
     </div>
   );

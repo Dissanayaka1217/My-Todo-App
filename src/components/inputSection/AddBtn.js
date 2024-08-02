@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 
-export default function AddBtn() {
+export default function AddBtn({ isAddBtnDisable }) {
   return (
     <div>
       <Button
@@ -12,6 +12,7 @@ export default function AddBtn() {
         }}
         variant="contained"
         size="small"
+        disabled={isAddBtnDisable}
       >
         ADD
       </Button>
