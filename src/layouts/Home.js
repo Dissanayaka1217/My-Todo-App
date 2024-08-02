@@ -11,14 +11,28 @@ export default function Home() {
   const [titleInputValue, setTitleInputValue] = useState("");
   const [descriptionInputValue, setDescriptionInputValue] = useState("");
   const [isAddBtnDisable, setIsAddBtnDisable] = useState(true);
+  const [isErrorVisible, setIsErrorVisible] = useState(false);
 
   const handleTitleOnchange = (event) => {
     const value = event.target.value;
     setTitleInputValue(value);
     setIsAddBtnDisable(!value.length);
+    setIsErrorVisible(false);
   };
+
   const handleDescriptionOnchange = (event) => {
     setDescriptionInputValue(event.target.value);
+  };
+
+  const handleAddBtn = () => {
+    if (titleInputValue.trim().length) {
+    } else {
+      setIsErrorVisible(true);
+    }
+
+    setTitleInputValue("");
+    setDescriptionInputValue("");
+    setIsAddBtnDisable(true);
   };
 
   return (
@@ -50,6 +64,8 @@ export default function Home() {
           handleDescriptionOnchange={handleDescriptionOnchange}
           descriptionInputValue={descriptionInputValue}
           isAddBtnDisable={isAddBtnDisable}
+          isErrorVisible={isErrorVisible}
+          handleAddBtn={handleAddBtn}
         />
         <ShowTodoSection />
       </div>

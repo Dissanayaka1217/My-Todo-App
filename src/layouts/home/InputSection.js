@@ -4,13 +4,17 @@
 import React from "react";
 import SingleInput from "../../components/inputSection/SingleInput";
 import AddBtn from "../../components/inputSection/AddBtn";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 export default function InputSection({
   handleTitleOnchange,
   titleInputValue,
   handleDescriptionOnchange,
   descriptionInputValue,
-  isAddBtnDisable
+  isAddBtnDisable,
+  isErrorVisible,
+  handleAddBtn
 }) {
   const inputdata = [
     {
@@ -49,8 +53,21 @@ export default function InputSection({
             return <SingleInput key={key} inputData={val} />;
           })}
         </div>
-        <AddBtn isAddBtnDisable={isAddBtnDisable} />
+        <AddBtn isAddBtnDisable={isAddBtnDisable}  handleAddBtn={handleAddBtn} />
       </div>
+      <Stack
+        sx={{
+          width: "100%",
+          visibility: isErrorVisible ? "visible" : "hidden",
+        }}
+      >
+        <Alert
+          icon={false}
+          sx={{ mb: 2, background: "#FF0000", color: "white" }}
+        >
+          Oops! You missed "Title". Please fill it out before continuing!
+        </Alert>
+      </Stack>
     </div>
   );
 }
