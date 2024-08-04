@@ -1,15 +1,17 @@
 import React from "react";
 
-export default function CompleteBtn() {
+export default function CompleteBtn({
+  completedButtonClick,
+  handleCompletedButtonClick,
+}) {
   return (
     <div>
       <button
-        // onClick={handleCompleteButtonClick}
+        onClick={handleCompletedButtonClick}
         style={{
-          background: "rgb(82, 87, 85)",
-          //  background: isCompleteButtonClicked
-          //     ? "rgb(5,197,108)"
-          //     : "rgb(82, 87, 85)",
+          background: completedButtonClick
+            ? "rgb(5,197,108)"
+            : "rgb(82, 87, 85)",
           padding: "10px",
           color: "white",
           border: "none",

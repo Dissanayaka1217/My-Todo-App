@@ -27,6 +27,20 @@ export default function Home() {
     },
   ]);
   const [todoId, setTodoId] = useState(3);
+  const [completedTodoData, setCompletedTodoData] = useState([
+    {
+      id: 20,
+      title: " comp title 05",
+      description: " com discription 01",
+      isComplete: false,
+    },
+    {
+      id: 21,
+      title: " com title 02",
+      description: "com discription 02",
+      isComplete: false,
+    },
+  ]);
 
   const handleTitleOnchange = (event) => {
     const value = event.target.value;
@@ -92,7 +106,10 @@ export default function Home() {
           isErrorVisible={isErrorVisible}
           handleAddBtn={handleAddBtn}
         />
-        <ShowTodoSection todoData={todoData} />
+        <ShowTodoSection
+          todoData={todoData}
+          completedTodoData={completedTodoData}
+        />
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
-// single todo
-
 import React from "react";
 import SingleTodo from "./todoList/SingleTodo";
 
-export default function TodoList({ todoData }) {
+export default function CompletedTodoList({ completedTodoData }) {
+  console.log(completedTodoData);
+
   return (
     <div>
-      {todoData.map((val, key) => {
+      {completedTodoData.map((val, key) => {
         return <SingleTodo key={key} data={val} />;
       })}
     </div>

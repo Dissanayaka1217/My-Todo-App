@@ -9,8 +9,9 @@ import TodoDescription from "../../../../components/singleTodo/TodoDescription";
 import TodoCheckBtn from "../../../../components/singleTodo/TodoCheckBtn";
 import TodoDeleteBtn from "../../../../components/singleTodo/TodoDeleteBtn";
 
-export default function SingleTodo({ todoData }) {
-  const { title, description } = todoData;
+export default function SingleTodo({ data }) {
+  console.log(data);
+  const { title, description } = data;
   return (
     <div
       style={{
