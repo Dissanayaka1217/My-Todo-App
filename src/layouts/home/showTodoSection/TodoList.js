@@ -1,7 +1,7 @@
 // single todo
 
 import React from "react";
-import SingleTodo from "./todoList/SingleTodo";
+import SingleTodo from "../../common/SingleTodo";
 
 export default function TodoList({ todoData }) {
   return (
