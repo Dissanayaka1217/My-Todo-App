@@ -13,9 +13,20 @@ export default function Home() {
   const [isAddBtnDisable, setIsAddBtnDisable] = useState(true);
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [todoData, setTodoData] = useState([
-    { title: "title 01", description: "discription 01" },
-    { title: "title 02", description: "discription 02" },
+    {
+      id: 1,
+      title: "title 01",
+      description: "discription 01",
+      isComplete: false,
+    },
+    {
+      id: 2,
+      title: "title 02",
+      description: "discription 02",
+      isComplete: false,
+    },
   ]);
+  const [todoId, setTodoId] = useState(3);
 
   const handleTitleOnchange = (event) => {
     const value = event.target.value;
@@ -30,6 +41,16 @@ export default function Home() {
 
   const handleAddBtn = () => {
     if (titleInputValue.trim().length) {
+      setTodoData([
+        ...todoData,
+        {
+          id: todoId,
+          title: titleInputValue,
+          description: descriptionInputValue,
+          isComplete: false,
+        },
+      ]);
+      setTodoId(todoId + 1);
     } else {
       setIsErrorVisible(true);
     }
