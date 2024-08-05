@@ -9,7 +9,7 @@ import CompleteBtn from "../../components/showTodoSection/CompleteBtn";
 import TodoList from "./showTodoSection/TodoList";
 import CompletedTodoList from "./showTodoSection/CompletedTodoList";
 
-export default function ShowTodoSection({ todoData, completedTodoData }) {
+export default function ShowTodoSection({ todoData, completedTodoData ,handleDeleteBtn }) {
   const [todoButtonClick, setTodoButtonClick] = useState(true);
   const [completedButtonClick, setCompletedButtonClick] = useState(false);
   const [showTodoList, setShowTodoList] = useState("block");
@@ -42,10 +42,10 @@ export default function ShowTodoSection({ todoData, completedTodoData }) {
         />
       </div>
       <div style={{ display: showTodoList }}>
-        <TodoList todoData={todoData} />
+        <TodoList todoData={todoData} handleDeleteBtn={handleDeleteBtn} />
       </div>
       <div style={{ display: showCompletedTodoList }}>
-        <CompletedTodoList completedTodoData={completedTodoData} />
+        <CompletedTodoList completedTodoData={completedTodoData} handleDeleteBtn={handleDeleteBtn} />
       </div>
     </div>
   );

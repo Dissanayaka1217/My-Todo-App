@@ -74,6 +74,11 @@ export default function Home() {
     setIsAddBtnDisable(true);
   };
 
+  const handleDeleteBtn = (id) => {
+    setTodoData(todoData.filter((todo) => todo.id !== id));
+    setCompletedTodoData(completedTodoData.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div
       style={{
@@ -109,6 +114,7 @@ export default function Home() {
         <ShowTodoSection
           todoData={todoData}
           completedTodoData={completedTodoData}
+          handleDeleteBtn={handleDeleteBtn}
         />
       </div>
     </div>
