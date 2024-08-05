@@ -9,8 +9,8 @@ import TodoDescription from "../../components/singleTodo/TodoDescription";
 import TodoCheckBtn from "../../components/singleTodo/TodoCheckBtn";
 import TodoDeleteBtn from "../../components/singleTodo/TodoDeleteBtn";
 
-export default function SingleTodo({ data, handleDeleteBtn }) {
-  const {id, title, description } = data;
+export default function SingleTodo({ data, handleDeleteBtn ,handleCheckButton}) {
+  const {id, title, description , isComplete } = data;
   return (
     <div
       style={{
@@ -31,7 +31,7 @@ export default function SingleTodo({ data, handleDeleteBtn }) {
         <TodoDescription description={description} />
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-        <TodoCheckBtn />
+        <TodoCheckBtn isComplete={isComplete} id ={id} handleCheckButton={handleCheckButton}  />
         <TodoDeleteBtn handleDeleteBtn={handleDeleteBtn} id ={id} />
       </div>
     </div>

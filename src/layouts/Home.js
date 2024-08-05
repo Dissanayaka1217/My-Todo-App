@@ -32,13 +32,13 @@ export default function Home() {
       id: 20,
       title: " comp title 05",
       description: " com discription 01",
-      isComplete: false,
+      isComplete: true,
     },
     {
       id: 21,
       title: " com title 02",
       description: "com discription 02",
-      isComplete: false,
+      isComplete: true,
     },
   ]);
 
@@ -79,6 +79,30 @@ export default function Home() {
     setCompletedTodoData(completedTodoData.filter((todo) => todo.id !== id));
   };
 
+  const handleCheckButton = (id, isComplete) => {
+    console.log(id, isComplete);
+    if (isComplete) {
+      const willUncheckTodo = completedTodoData.find((todo) => todo.id === id);
+      const updateWillUncheckTodo = {
+        ...willUncheckTodo,
+        isComplete: !willUncheckTodo.isComplete,
+      };
+
+      setCompletedTodoData(completedTodoData.filter((todo) => todo.id !== id));
+      setTodoData([updateWillUncheckTodo, ...todoData]);
+    } else {
+      const willCheckTodo = todoData.find((todo) => todo.id === id);
+
+      const updateWillCheckTodo = {
+        ...willCheckTodo,
+        isComplete: !willCheckTodo.isComplete,
+      };
+
+      setTodoData(todoData.filter((todo) => todo.id !== id));
+      setCompletedTodoData([...completedTodoData, updateWillCheckTodo]);
+    }
+  };
+
   return (
     <div
       style={{
@@ -97,7 +121,6 @@ export default function Home() {
           marginLeft: "auto",
           marginRight: "auto",
           marginTop: "3%",
-          maxHeight: "80vh",
           overflowY: "auto",
           boxShadow: "0px 5px 7px rgb(27, 27, 27)",
         }}
@@ -115,6 +138,7 @@ export default function Home() {
           todoData={todoData}
           completedTodoData={completedTodoData}
           handleDeleteBtn={handleDeleteBtn}
+          handleCheckButton={handleCheckButton}
         />
       </div>
     </div>
