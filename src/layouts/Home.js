@@ -12,6 +12,7 @@ export default function Home() {
   const [descriptionInputValue, setDescriptionInputValue] = useState("");
   const [isAddBtnDisable, setIsAddBtnDisable] = useState(true);
   const [isErrorVisible, setIsErrorVisible] = useState(false);
+  const [todoId, setTodoId] = useState(3);
   const [todoData, setTodoData] = useState([
     {
       id: 1,
@@ -26,7 +27,6 @@ export default function Home() {
       isComplete: false,
     },
   ]);
-  const [todoId, setTodoId] = useState(3);
   const [completedTodoData, setCompletedTodoData] = useState([
     {
       id: 20,
@@ -80,7 +80,7 @@ export default function Home() {
   };
 
   const handleCheckButton = (id, isComplete) => {
-    console.log(id, isComplete);
+    // console.log(id, isComplete);
     if (isComplete) {
       const willUncheckTodo = completedTodoData.find((todo) => todo.id === id);
       const updateWillUncheckTodo = {
@@ -100,6 +100,12 @@ export default function Home() {
 
       setTodoData(todoData.filter((todo) => todo.id !== id));
       setCompletedTodoData([...completedTodoData, updateWillCheckTodo]);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleAddBtn();
     }
   };
 
@@ -133,6 +139,7 @@ export default function Home() {
           isAddBtnDisable={isAddBtnDisable}
           isErrorVisible={isErrorVisible}
           handleAddBtn={handleAddBtn}
+          handleKeyDown={handleKeyDown}
         />
         <ShowTodoSection
           todoData={todoData}

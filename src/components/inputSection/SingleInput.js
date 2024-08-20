@@ -3,7 +3,7 @@
 
 import React from "react";
 
-export default function SingleInput({ inputData }) {
+export default function SingleInput({ inputData ,handleKeyDown }) {
   const { title, placeholder, handleOnchange, inputValue } = inputData;
 
   return (
@@ -32,6 +32,7 @@ export default function SingleInput({ inputData }) {
         placeholder={placeholder}
         onChange={handleOnchange}
         value={inputValue}
+        onKeyDown={handleKeyDown}
       />
     </div>
   );

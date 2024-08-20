@@ -14,7 +14,8 @@ export default function InputSection({
   descriptionInputValue,
   isAddBtnDisable,
   isErrorVisible,
-  handleAddBtn
+  handleAddBtn,
+  handleKeyDown
 }) {
   const inputdata = [
     {
@@ -50,7 +51,7 @@ export default function InputSection({
           }}
         >
           {inputdata.map((val, key) => {
-            return <SingleInput key={key} inputData={val} />;
+            return <SingleInput key={key} inputData={val} handleKeyDown={handleKeyDown} />;
           })}
         </div>
         <AddBtn isAddBtnDisable={isAddBtnDisable}  handleAddBtn={handleAddBtn} />
